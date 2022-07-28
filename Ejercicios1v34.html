@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primeros cuatro ejercicios propuestos por Jhon</title>
+  </head>
+  <body>
+    <h2>Ejercicios de practica de los primeros 4 Videos</h2>
+    <ol>
+      <li>
+        Programa una función que cuente el número de caracteres de una cadena de
+        texto, pe. miFuncion("Hola Mundo") devolverá 10.
+      </li>
+      <br />
+      <li>
+        Programa una función que te devuelva el texto recortado según el número
+        de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá
+        "Hola".
+      </li>
+      <br />
+      <li>
+        Programa una función que dada una String te devuelva un Array de textos
+        separados por cierto caracter, pe. miFuncion('hola que tal', ' ')
+        devolverá ['hola', 'que', 'tal'].
+      </li>
+      <br />
+      <li>
+        Programa una función que repita un texto X veces, pe. miFuncion('Hola
+        Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+      </li>
+      <br />
+      <li>
+         Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+      </li>
+      <br />
+      <li>
+         Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+      </li>
+      <br />
+      <li>
+         Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+      </li>
+      <br />
+      <li>
+         Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+      </li>
+    </ol>
+
+    <script>
+      //Ejercicio 1
+
+      //Opcion1
+      const contadora = (cadena) =>
+        document.write(
+          "La oración tiene " + cadena.length + " caracteres" + "<br><br>"
+        );
+      contadora("Hola Mundo");
+
+      //Opcion 2
+
+      const contador1 = (cadena = "") =>
+        !cadena
+          ? console.warn("No ingresaste ninguna cadena")
+          : document.write(
+              `la cadena' ${cadena}' tiene ${cadena.length} caracteres "<br><br>"`
+            );
+
+      contador1();
+      contador1("Hola mundo");
+
+      //Ejercicio 2
+
+      const sub = (cadena) =>
+        document.write(
+          `La cadena original es ${cadena} y el resultado del ejercicio es ${cadena.slice(
+            0,
+            4
+          )}`
+        );
+
+      sub("Hola Mundo");
+
+      // Ejercicio 3
+
+      const arreglo = (cadena = "", separador = undefined) =>
+        !cadena
+          ? console.warn("No ingresaste ninguna cadena")
+          : separador === undefined
+          ? console.warn("No ingresaste ningun separa")
+          : console.log(cadena.split(separador));
+
+      arreglo("Hola mundo convertido en arreglo", " ");
+      arreglo();
+
+      //Ejercicio 4
+
+      const repetir = (cadena) =>
+        document.write("<br><br>" + cadena.repeat(3) + "<br><br>");
+      repetir("Oración repetida " + "<br>");
+
+      //Opción dos
+
+      const repetimos = (texto = "", veces = "undefined") => {
+        if (!texto) return console.warn("No ingresaste una cadena");
+        if (veces === undefined)
+          return console.warn("No ingresaste el numero de veces a repetir");
+        if (veces === undefined)
+          return console.error("El numero de veces no puede ser cero");
+        if (Math.sign(veces) === -1)
+          return console.log("El numero de veces no puede ser negativo");
+
+        document.write(texto.repeat(veces));
+      };
+
+      repetimos("Oracion repetida", 5);
+
+      //Ejercicio 5
+
+      const invertirCadena = (cadena="")=>
+      (!cadena)
+      ?console.warn("No ingresaste una cadena de texto")
+      :document.write("<br><br>" + cadena.split("").reverse().join(""));
+
+      document.write("<br><br>" + "Ejercicio 5");
+      invertirCadena("Hola Mundo")
+
+
+
+      // Ejercicio 6 => Evaluando palaras palindromas
+
+
+      const palindromas = (palabra = "")=>{
+        if(!palabra) return console.warn("No ingresaste una palabra o frase");
+
+        palabra = palabra.toLowerCase();
+        let palabraAlReves = palabra.split("").reverse("").join("");
+
+        return(palabra === palabraAlReves)
+        ?console.info(`Si es palíndroma, Palabra original ${palabra}`)
+        :console.info(`No es palíndroma, Palabra original ${palabra}, palabra al reves ${palabraAlReves}`);
+      }
+
+      palindromas("salas");
+      palindromas("amor a roma")
+      palindromas();
+
+
+      //Eliminar caracteres de una cadena de texto
+
+      const eliminarCaracter = (texto = "",patron="")=>
+      (!texto)
+      ?console.warn("NO ingresaste un texto")
+      :(!patron)
+      ?console.warn("No ingresaste ningun patron a eliminar")
+      :console.log(texto.replace(new RegExp(patron,"ig"),""));
+      
+      eliminarCaracter("hola con espacios eliminados"," ");
+
+
+      //Numero Random 
+
+
+    </script>
+  </body>
+</html>

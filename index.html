@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practicas</title>
+  </head>
+  <body>
+    <script>
+
+      // Numeros Primos hasta el que se te de la gana
+
+      for (let i = 1; i <= 7; i++) {
+        let veces = 0;
+        for (let j = 1; j <= i; j++) {
+          let res = i % j;
+          if (res === 0) {
+            veces += 1;
+          }
+        }
+        if (veces === 2) {
+          console.log("El numero " + i + " es primo");
+        }
+      }
+
+      // Arrow function
+
+      const saludar = (nombre) => console.log(`Hola ${nombre}`);
+      saludar("Olimpo");
+
+      //Prototipos
+
+      function Animal(nombre, genero) {
+        this.nombre = nombre;
+        this.genero = genero;
+      }
+
+      //Los métodos los dejo por fuera
+
+      Animal.prototype.sonido = function () {
+        console.log("Hola soy un animal y hago sonidos");
+      };
+      Animal.prototype.saludar = function () {
+        console.log(`Hola mi nombre es ${this.nombre}`);
+      };
+
+      // Herencia de prototipos
+
+      function Perro(nombre, genero, tamanio) {
+        this.super = Animal;
+        this.super(nombre, genero);
+        this.tamanio = tamanio;
+      }
+
+      //Sobre escritura de métodos
+
+      Perro.prototype.sonido = function () {
+        console.log("Hola soy un perro y mi sinido es un ladrido");
+      };
+
+      Perro.prototype.ladrar = function () {
+        console.log("guauuuuu guauuuuu");
+      };
+
+      const mascota = new Perro("Terry", "Masculino", "Mediano");
+      const gato = new Animal("Ramón", "Masculino");
+
+      mascota.sonido();
+      gato.sonido();
+
+      mascota.ladrar();
+
+      // Forma de escribir clases en JS
+      //Aunque JS lo transforma a prototipos
+
+      class Carro {
+        constructor(referencia, tipo, año) {
+          this.referencia = referencia;
+          this.tipo = tipo;
+          this.año = año;
+        }
+
+        presentacion() {
+          let saludo = this.tipo;
+
+          switch (saludo) {
+            case "camioneta":
+              console.log(
+                `Hola soy una ${this.referencia} y soy de la familia de las ${this.tipo}s`
+              );
+              break;
+
+            default:
+              console.log("No es de ningun tipo de Vehiculo disponible");
+
+              break;
+          }
+        }
+
+        //Metodo estatico
+        static descripcion(){
+            console.log("Clase destinada a carros")
+        }
+
+      }
+
+      const mazda = new Carro("Mazda CX-5", "camioneta", "2022");
+      const carro2 = new Carro("Mazda 3", "Automovil","2022");
+
+      console.log(mazda);
+
+      mazda.presentacion();
+      carro2.presentacion();
+
+      Carro.descripcion();
+
+    </script>
+  </body>
+</html>

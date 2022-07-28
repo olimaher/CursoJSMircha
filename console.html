@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Console</title>
+</head>
+<body>
+    <script>
+
+        console.error("Esto es un error");
+        console.warn("Esto es una alerta");
+        console.info("Esto es un mensaje inforamativo");
+
+        console.log(console);
+        console.table(Object.entries(console));
+
+
+        // Libreria para manejo del tiempo ====>Moment.Js
+
+        let dianacimiento = new Date(1987,1,19,2);
+        console.log(dianacimiento);
+
+
+        const frutas = ['Manzana','Banano','Pera','Fresa']
+
+        frutas.forEach(nombre=>console.log(nombre));
+
+        //Funciones para manejo de arrays ==> Aquella donde el objetivo es trabajar con funciones puras y evitar que se toquen otras partes del programa con lo que se haga.
+
+        const numPrueba = [1,2,3,4,5,6,7,8,3,5];
+
+        //Uso del MAP
+        
+        const numDobles = numPrueba.map(function(numero){
+            return numero*2;
+        });
+
+        // Uso de FILTER == Descarta los elementos que no queremos del array y genera un true o un false
+
+        const productos = [
+            {id:'001',descripcion:'llantas',valor:'1000'},
+            {id:'002',descripcion:'espejos',valor:'2000'},
+            {id:'003',descripcion:'bateria',valor:'3000'},
+        ];
+
+        const barato = prod => prod.valor<1200;
+
+        const probarato = productos.filter(barato);
+
+        const numerosUnicos = numPrueba.filter((numero,posicion,numprueba)=>{
+            return posicion === numprueba.indexOf(numero);
+        });
+
+        // REDUCE reduce el array , lo manda en un acumulador 
+
+
+        const numeroReducido = (acumulador,numero) => acumulador + numero;
+        const totalNumeroReducido = numPrueba.length>0? numPrueba.reduce(numeroReducido):0;
+
+
+        const random = Math.round(Math.random() * 1000);
+
+        console.log(random);
+        
+        //Operadores de corto circuito
+
+        console.log("cadena" || "valor de la derecha");
+        console.log("cadena" && "valor de la derecha");
+
+
+        // Metodos de Ventana
+
+        //alert - confirm -prompt
+
+        //---------------------------/////
+
+        //Expresiones regulares
+
+        let texto = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem qui deserunt suscipit alias, minus quasi libero recusandae eaque magni nulla possimus. Illo qui nostrum assumenda sequi accusantium soluta ab similique Lorem."
+
+        
+
+        let expresion = /lorem/ig;
+
+        console.log(expresion.test(texto));
+        console.log(expresion.exec(texto));
+
+
+        //Funciones anonimas Autoejecutables - Modo clasico de escribirla
+
+        (function(){
+            console.log("Mi primera funcion IIFE");
+        })();
+        
+        //
+
+
+    </script>
+</body>
+</html>
