@@ -168,12 +168,37 @@
 
       // Funcion si el numero es capicúa
 
-      const numeroCapicua= 5;
-      const numeroCapicu= 6;
+      const capicua = (numero=0)=>{
+        if(!numero)return console.warn("No ingresaste un número");
+        if (typeof numero!=="number")return console.error(`el valor"${numero}" ingresado, no es numero`);
+        
+        numero= numero.toString();
+        let alReves=numero.split("").reverse("").join("");
 
-      const 
+        return(numero ===alReves)
+        ?console.info("El número SI es capicúa")
+        :console.info("El número NO es capicúa")
+      }
       
+      capicua();
+      capicua("2");
+      capicua(2002);
 
+      //Factorial de un numero
+
+      const factorial=(num=undefined)=>{
+        if(num === undefined)return console.warn("No ingresaste un número");
+        if(Math.sign(num)===-1) return console.info("El número no puede ser negativo o cadena de texto o cero");
+
+        let element = 1
+        for (let i = 1; i <= num; i++) {
+        element *= i;
+        }
+        return console.log(element);
+      }
+      factorial("2");
+      factorial(-5);
+      factorial(5);
     </script>
   </body>
 </html>
